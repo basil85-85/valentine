@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine ❤️</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative; /* for footer positioning */
+    }
+
+    .box {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #ff4d6d;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.1s;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #ccc;
+      color: black;
+      position: absolute;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ffe6ec;
+      font-size: 13px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    footer span {
+      font-weight: bold;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Will you be my Valentine? 💖</h1>
+    <button id="yes" onclick="yesClicked()">Yes 💕</button>
+    <button id="no">No 💔</button>
+  </div>
+
+  <footer>
+    Made with 💖 for you &nbsp;|&nbsp; Dedicated by <span>Basill</span><br>
+    Dedicated to all lovers, this is my little gift for Valentine’s Day 💝<br>
+    Happy Valentine’s Day, my valin 💘
+  </footer>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    const messages = [
+      "No 💔",
+      "Are you sure? 🥺",
+      "Really? 😢",
+      "Please? 🙏",
+      "Don't say no 😭",
+      "Think again 💭",
+      "Nooo 😿",
+      "Please please 🥹",
+      "I'm crying 😭💔",
+      "My heart 💔😢",
+      "Why? 😩",
+      "Pleasee 🥺🙏",
+      "I'm begging 😭🙏",
+      "You are breaking me 💔",
+      "Last chance 🥲",
+      "Pretty please 🥺💖",
+      "I can't handle this 😭",
+      "So cruel 😿",
+      "My soul 😩💔"
+    ];
+
+    let index = 0;
+
+    function moveButton() {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+
+      noBtn.textContent = messages[index % messages.length];
+      index++;
+    }
+
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <h1 style="color:white; font-size:40px; text-align:center; padding:20px;">
+          YAYYYY 😍💖<br>
+          I knew you'd say YES 💕🥰
+        </h1>
+        <footer style="position:fixed; bottom:10px; left:50%; transform:translateX(-50%); color:#ffe6ec; font-size:13px; text-align:center;">
+          Made with 💖 for you &nbsp;|&nbsp; Dedicated by <span style="font-weight:bold; color:#fff;">Basill</span><br>
+          Dedicated to all lovers, this is my little gift for Valentine’s Day 💝<br>
+          Happy Valentine’s Day, my valin 💘
+        </footer>
+      `;
+    }
+  </script>
+
+</body>
+</html>
